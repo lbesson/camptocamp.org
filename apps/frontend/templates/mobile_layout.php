@@ -58,7 +58,26 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
 </head>
 <body>
     <?php include_partial('common/section_close'); ?>
-    <div id="holder">
+    <nav class="snap-drawers">
+      <?php $response->addJavascript('/static/js/snap.min.js'); 
+            $response->addJavascript('/static/js/slide-menu.js'); ?>
+      <div class="snap-drawer snap-drawer-left">
+                    <ul>
+                        <li><a href="default.html">Default</a></li>
+                        <li><a href="noDrag.html">No Drag</a></li>
+                        <li><a href="dragElement.html">Drag Element</a></li>
+                        <li><a href="rightDisabled.html">Right Disabled</a></li>
+                        <li><a href="hyperextend.html">Hyperextension Disabled</a></li>
+                        <li><a href="skinnyThreshold.html">Skinny Threshold</a></li>
+                        <li><a href="toggles.html">Toggles</a></li>
+                        <li><a href="classNames.html">Class Names</a></li>
+                        <li><a href="expand.html">Expanding</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                        <li><a href="ratchet/template.html">Ratchet</a></li>
+                    </ul>
+      </div>
+    </nav>
+    <div id="holder" class="snap-content">
         <header id="page_header">
         <?php
         $header_partial = ($action == 'view' && $footer_type == 'cda') ? 'portals/cda_mobile_header' : 'common/mobile_header';

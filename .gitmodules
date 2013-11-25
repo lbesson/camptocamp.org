@@ -34,3 +34,6 @@
 [submodule "lib/password_compat"]
 	path = lib/password_compat
 	url = https://github.com/ircmaxell/password_compat.git
+[submodule "web/static/js/third-parties/Snapjs"]
+	path = web/static/js/third-parties/Snapjs
+	url = https://github.com/jakiestfu/Snap.js.git
