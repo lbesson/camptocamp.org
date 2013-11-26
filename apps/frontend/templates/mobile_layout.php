@@ -38,7 +38,7 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
         $response->getParameterHolder()->remove('title', 'helper/asset/auto/meta');
         echo include_metas();
     ?>
-    <script type="text/javascript">
+    <script>
     (function(m,w){var l='<?php echo trim(minify_get_main_stylesheets($combine, $debug)); ?>',r=1
     w.devicePixelRatio?r=w.devicePixelRatio:"matchMedia"in w&&w.matchMedia&&(w.matchMedia("(min-resolution: 2dppx)").matches||w.matchMedia("(min-resolution: 192dpi)").matches?r=2:(w.matchMedia("(min-resolution: 1.5dppx)").matches||w.matchMedia("(min-resolution: 144dpi)").matches)&&(r=1.5))
     if(r>1){l=l.replace(m,m+'@'+(r>=2?2:1.5)+'x');}document.write(l);})('mobile',window);
@@ -57,26 +57,10 @@ if ($lang === 'en') use_stylesheet('/static/css/ac');
     ($_SERVER['REQUEST_URI'] != '/' ? $_SERVER['REQUEST_URI'] : ''); ?>" />
 </head>
 <body>
-    <?php include_partial('common/section_close'); ?>
-    <nav class="snap-drawers">
-      <?php $response->addJavascript('/static/js/snap.min.js'); 
-            $response->addJavascript('/static/js/slide-menu.js'); ?>
-      <div class="snap-drawer snap-drawer-left">
-                    <ul>
-                        <li><a href="default.html">Default</a></li>
-                        <li><a href="noDrag.html">No Drag</a></li>
-                        <li><a href="dragElement.html">Drag Element</a></li>
-                        <li><a href="rightDisabled.html">Right Disabled</a></li>
-                        <li><a href="hyperextend.html">Hyperextension Disabled</a></li>
-                        <li><a href="skinnyThreshold.html">Skinny Threshold</a></li>
-                        <li><a href="toggles.html">Toggles</a></li>
-                        <li><a href="classNames.html">Class Names</a></li>
-                        <li><a href="expand.html">Expanding</a></li>
-                        <li><a href="settings.html">Settings</a></li>
-                        <li><a href="ratchet/template.html">Ratchet</a></li>
-                    </ul>
-      </div>
-    </nav>
+    <?php include_partial('common/section_close');
+          use_javascript('/static/js/snap.min.js');
+          use_javascript('/static/js/slide-menu.js');
+          include_partial('common/mobile_nav'); ?>
     <div id="holder" class="snap-content">
         <header id="page_header">
         <?php
