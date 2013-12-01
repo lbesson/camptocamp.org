@@ -24,11 +24,11 @@ function javascript_queue($js) {
 
   if (sfContext::getInstance()->getRequest()->isXmlHttpRequest())
   {
-      return javascript_tag('(function(C2C){' . $js . '})(window.C2C=window.C2C||{});');
+      return javascript_tag(Minify_UglifyJSCompiler::minify('(function(C2C){' . $js . '})(window.C2C=window.C2C||{});'));
   }
   else
   {
-      return javascript_tag('(function(w,c){w[c]=w[c]||{};(w[c]._q=w[c]._q||[]).push(function(){'.
-          $js."});})(window,'C2C');");
+      return javascript_tag(Minify_UglifyJSCompiler::minify('(function(w,c){w[c]=w[c]||{};(w[c]._q=w[c]._q||[]).push(function(){'.
+          $js."});})(window,'C2C');"));
   }
 }
